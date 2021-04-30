@@ -1072,6 +1072,7 @@ def generateProjectFiles(projectPath, projectName, sdkPath, projects, debugger):
                   '      ],\n'
                   '      "defines": [],\n'
                   '      "compilerPath": "/usr/bin/arm-none-eabi-gcc",\n'
+                  '      "compileCommands": "${workspaceFolder}/build/compile_commands.json",\n'
                   '      "cStandard": "gnu17",\n'
                   '      "cppStandard": "gnu++14",\n'
                   '      "intelliSenseMode": "linux-gcc-arm",\n'
