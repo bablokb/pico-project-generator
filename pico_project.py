@@ -905,6 +905,14 @@ def GenerateCMake(folder, params):
                 "# Add executable. Default name is the project name, version 0.1\n\n"
                 )
 
+    cmake_debug = (
+                "# add preprocessor-constant DEBUG for Debug-builds\n"
+                "if(CMAKE_BUILD_TYPE STREQUAL \"Debug\")\n"
+                "  set(CMAKE_VERBOSE_MAKEFILE 1)\n"
+                "  add_compile_definitions(DEBUG)\n"
+                "else()\n"
+                "endif()\n\n"
+                )
 
     filename = Path(folder) / CMAKELIST_FILENAME
 
@@ -948,6 +956,9 @@ def GenerateCMake(folder, params):
         file.write('add_executable(' + params.projectName + ' ' + params.projectName + '.cpp )\n\n')
     else:
         file.write('add_executable(' + params.projectName + ' ' + params.projectName + '.c )\n\n')
+
+    # special options for build-type Debug
+    file.write(cmake_debug)
 
     file.write('pico_set_program_name(' + params.projectName + ' "' + executableName + '")\n')
     file.write('pico_set_program_version(' + params.projectName + ' "0.1")\n\n')
