@@ -918,7 +918,7 @@ def GenerateCMake(folder, params):
     p = str(params.sdkPath).replace('\\','/')
     p = '\"' + p + '\"'
 
-    file.write('set(PICO_SDK_PATH ' + p + ')\n\n')
+    file.write('#set(PICO_SDK_PATH ' + p + ')\n\n')
     file.write(cmake_header2)
     file.write('project(' + params.projectName + ' C CXX ASM)\n')
 
