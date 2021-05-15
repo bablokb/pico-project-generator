@@ -1,4 +1,14 @@
-# pico-project-generator
+pico-project-generator
+======================
+
+This is a cloned and updated version of the original script provided
+by the Raspberry Pi Foundation. Since they don't seem to maintain
+that version anymore and don't react to pull-requests, this version
+is maintained independent of the original.
+
+
+Overview
+--------
 
 This is a command line or GUI tool, written in Python, to automatically generate a Pico C SDK Project.
 
@@ -6,14 +16,18 @@ The tool will generate all required CMake files, program files and VSCode IDE fi
 
 It will also add example code for any features and optionally for some standard library functions.
 
-## Installation
+
+Installation
+------------
 
 To install this tool, execute the following commands (assuming `/usr/local/bin` is in your `PATH`):
 
-    sudo cp -a pico_project.py pico_configs.tsv logo_alpha.gif /usr/local/bin
-    sudo chown root:root  /usr/local/bin/{pico_project.py,pico_configs.tsv,logo_alpha.gif}
+    git clone https://github.com/bablokb/pico-project-generator.git
+    pico-project-generator/tools/install
 
-## Command line
+
+Command line
+------------
 
 Running `./pico_project --help` will give a list of the available command line parameters
 
@@ -51,8 +65,8 @@ You can list the features supported by the tools by using `./pico_project --list
 be added to the project using the `--feature` options, this can be used multiple times.
 
 
-
-## GUI version
+GUI version
+-----------
 
 The GUI version of the tool, run by adding `--gui` to the command line, uses `tkinter` to provide a platform agnostic script that will run on Linux, Mac and Windows. All the options from the command line tool are also supported in the GUI.
 
@@ -84,7 +98,8 @@ Create VSCode Project | As well as the CMake files, also create the appropriate 
 Debugger | Use the specified debugger in the IDE
 
 
-## Tasks
+Tasks
+-----
 
 This command will also generate the file `.vscode/tasks.json` with (currently) a single task called `Copy to Pico`. If you run this task, it will compile, link and
 copy (upload) the code to the Pico. The extension called `Tasks` from the marketplace (author actboy168, note that there are other, similarly named extensions, so take care)  will add a button to the action-bar at the bottom of VSCode, so compiling and uploading is only a mouse-click away.
