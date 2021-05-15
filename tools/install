@@ -1,0 +1,23 @@
+#!/bin/bash
+# --------------------------------------------------------------------------
+# This script installs files and services specific to this project.
+#
+# Author: Bernhard Bablok
+# License: GPL3
+#
+# Website: https://github.com/bablokb/pico-project-generator
+#
+# --------------------------------------------------------------------------
+
+# we just copy the files to /usr/local/bin
+
+FILES="logo_alpha.gif pico_configs.tsv pico_project.py"
+TARGET_DIR="/usr/local/bin" 
+pgm_dir="${0%%/*}"
+
+for f in $FILES; do  # N.B: FILES not quoted!
+  echo "[info] installing $pgm_dir/../$f to $TARGET_DIR"
+  sudo cp -a "$pgm_dir/../$f" "$TARGET_DIR"
+  sudo chown root:root "$TARGET_DIR/$f"
+done
+echo "[info] done"
